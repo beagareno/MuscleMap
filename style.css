@@ -1,0 +1,117 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.head{
+    background-color: rgb(184, 6, 6);
+    margin-top: 0px;
+    padding-top: 0px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.logos{
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+.logo{
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%);
+    border-radius: 5px;
+    color: rgb(73, 69, 69);
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mlogo{
+    color: rgb(228, 22, 22);
+}
+
+.imglogo{
+    width: 12%;
+    margin-left: 10px;
+}
+
+body{
+    background-color: rgb(61, 57, 57);
+}
+
+.buttons{
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+}
+
+.buttons button{
+    width: 130px;
+    height: 40px;
+    background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%);
+    border-radius: 5px;
+    color: rgb(73, 69, 69);
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cadastro{
+    background-color: #c7bebe;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-right: 500px;
+    margin-left: 500px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.cadastro h1{
+    align-self: center;
+    color: rgb(228, 22, 22);
+    margin: 0px;
+}
+
+.cadastro hr{
+    height: 10px;
+    color: rgb(228, 22, 22);
+}
+
+.cadastro input{
+    width: 70%;
+    height: 35px;
+    border: 0;
+    border-radius: 10px;
+    padding-left: 15px;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 10px;
+}
+
+.linha{
+    background: linear-gradient(to right, #e62828, #ee4f4f);
+    border-radius: 10px;
+    width: 50%;
+    height: 3px;
+    margin: 5px 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-self: center;
+    
+}
