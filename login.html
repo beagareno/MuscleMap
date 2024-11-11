@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuscleMap | Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="head">
+       <div class="logos"> 
+            <div class="logo">Muscle<span class="mlogo">Map</span></div>
+            <img class="imglogo" src="possivel_logo_musclemap2-removebg-preview.png" alt="">
+        </div>
+            <div class="buttons">
+                <button>Calculadora</button>
+                <button>Cadastrar</button>
+                <button>Login</button>
+            </div>
+
+        </div>
+    </header>
+
+    <form class="login">
+        <h1>Login</h1>
+        <span class="linha"></span>
+        <input oninput="validarEmail()" type="text" id="ipt_email" placeholder="E-mail">
+        <div id="ema"></div>
+        <input oninput="validarSenha()" type="password" id="ipt_senha" placeholder="Senha">
+        <div id="senhas"></div>
+        
+        <button onclick="validarLogin()">Login</button>
+    </form>
+
+</body>
+</html>
