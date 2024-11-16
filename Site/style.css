@@ -113,22 +113,67 @@ body{
     width: 50px;
 }
 
+.criar{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-self: center;
+    background-color: yellow;
+    border-radius: 20px;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 150px;
+}
+
 .img_virar{
     width: 100%;
 }
 
-.escolha{
+.escolha_frente{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
-.escolha h1{
+.escolha_frente h1{
     color: yellow;
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
 }
 
-.escolha select{
+.escolha_frente select{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 300px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-left: 5px;
+    outline: none;
+}
+
+.escolha_tras{
+    display: none;
+    flex-direction: column;
+}
+
+.escolha_tras h1{
+    color: yellow;
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.escolha_tras select{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
     margin-bottom: 300px;
     height: 40px;
     border: 2px solid white;

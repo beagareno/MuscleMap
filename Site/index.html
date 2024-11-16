@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
     <link rel="shortcut icon" type="imagex/png" href="img/logo_musclemap.png">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="head">
-       <div class="logos"> 
-            <a href="index.html" class="logo">Muscle<span class="mlogo">Map</span></a>
-            <img class="imglogo" src="img/logo_musclemap.png" alt="">
-        </div>
+            <div class="logos">
+                <a href="index.html" class="logo">Muscle<span class="mlogo">Map</span></a>
+                <img class="imglogo" src="img/logo_musclemap.png" alt="">
+            </div>
             <div class="buttons">
                 <a>Calculadora</a>
                 <a href="cadastro.html">Cadastrar</a>
@@ -27,11 +29,15 @@
         <img class="img_virar" src="img/virar.png" alt="">
     </button>
 
+    <button onclick="criar_treino()" class="criar">Criar Treino</button>
+
     <div id="div_manequim" class="manequim">
 
-        <div class="escolha">
-            <h1>Escolha um músculo</h1>
-            <select id="slct_musculo_frente">
+        <form id="form_frente_sup" class="escolha_frente">
+
+            <h1>Escolha um músculo <br> (Superiores)</h1>
+
+            <select id="slct_musculo_frente_sup">
                 <option value="">Peitoral Maior</option>
                 <option value="">Peitoral Menor</option>
                 <option value="">Deltóide Anterior</option>
@@ -39,10 +45,42 @@
                 <option value="">Bíceps Cabeça Longa</option>
                 <option value="">Bíceps Cabeça Curta</option>
                 <option value="">Braquial</option>
+                <option value="">Abdômen</option>
+            </select>
+
+        </form>
+
+        <form id="form_tras_sup" class="escolha_tras">
+
+            <h1>Escolha um músculo <br> (Superiores)</h1>
+
+            <select id="slct_musculo_tras_sup">
+                <option value="">Trapézio</option>
+                <option value="">Lattíssimo do Dorso</option>
+                <option value="">Rombóides</option>
+                <option value="">Eretor de Espinha</option>
+                <option value="">Quadrado Lombar</option>
+                <option value="">Deltóide Posterior</option>
                 <option value="">Tríceps Cabeça Longa</option>
                 <option value="">Tríceps Cabeça Lateral</option>
                 <option value="">Tríceps Cabeça Medial</option>
-                <option value="">Abdômen</option>
+            </select>
+
+        </form>
+
+        <div id="corpo_frente" class="corpo_frente_on">
+            <img style="height: 90%; width: 70%;" src="img/corpo_frente.png" alt="">
+        </div>
+
+        <div id="corpo_tras" class="corpo_tras_off">
+            <img style="height: 90%; width: 70%;" src="img/corpo_tras.png" alt="">
+        </div>
+
+        <form id="form_frente_inf" class="escolha_frente">
+
+            <h1>Escolha um músculo <br> (Inferiores)</h1>
+
+            <select id="slct_musculo_frente_inf">
                 <option value="">Reto Femoral</option>
                 <option value="">Vasto Lateral</option>
                 <option value="">Vasto Medial</option>
@@ -50,48 +88,67 @@
                 <option value="">Adutores</option>
                 <option value="">Abdutores</option>
             </select>
-            </div>
 
-    <div id="corpo_frente" class="corpo_frente_on">
-        <img src="img/corpo_frente.png" alt="">
+        </form>
+
+        <form id="form_tras_inf" class="escolha_tras">
+
+            <h1>Escolha um músculo <br> (Inferiores)</h1>
+        
+            <select id="slct_musculo_tras_inf">
+                <option value="">Bíceps Femoral</option>
+                <option value="">Semitendíneo</option>
+                <option value="">Semimembranoso</option>
+                <option value="">Glúteo Máximo</option>
+                <option value="">Glúteo Médio</option>
+                <option value="">Glúteo Mínimo</option>
+                <option value="">Gêmeos</option>
+                <option value="">Sóleo</option>
+            </select>
+
+        </form>
+
     </div>
 
-    <div id="corpo_tras" class="corpo_tras_off">
-        <img src="img/corpo_tras.png" alt="">
-    </div>
-
-    </div>
-
-    
 
 </body>
+
 </html>
 
 <script>
-    function virar(){
+    function virar() {
 
-        if(corpo_frente.className == 'corpo_frente_on'){
+        const corpo_frente = document.getElementById('corpo_frente');
+        const corpo_tras = document.getElementById('corpo_tras');
+        const form_frente_sup = document.getElementById('form_frente_sup');
+        const form_tras_sup = document.getElementById('form_tras_sup');
+        const form_frente_inf = document.getElementById('form_frente_inf');
+        const form_tras_inf = document.getElementById('form_tras_inf');
+
+        if (corpo_frente.className == 'corpo_frente_on') {
+
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             corpo_tras.classList.remove('corpo_tras_off');
             corpo_tras.classList.add('corpo_tras_on');
-        } else if(corpo_tras.className == 'corpo_tras_on'){
+
+            form_frente_sup.style.display = 'none';
+            form_tras_sup.style.display = 'flex';
+            form_frente_inf.style.display = 'none';
+            form_tras_inf.style.display = 'flex';
+
+        } else if (corpo_tras.className == 'corpo_tras_on') {
+
             corpo_frente.classList.add('corpo_frente_on');
             corpo_frente.classList.remove('corpo_frente_off');
             corpo_tras.classList.add('corpo_tras_off');
             corpo_tras.classList.remove('corpo_tras_on');
+
+            form_frente_sup.style.display = 'flex';
+            form_tras_sup.style.display = 'none';
+            form_frente_inf.style.display = 'flex';
+            form_tras_inf.style.display = 'none';
         }
 
-        // if(tras.class == 'corpo_tras_off'){
-        //     frente.classList.remove('corpo_frente_on');
-        //     frente.classList.add('corpo_frente_off');
-        //     tras.classList.remove('corpo_tras_off');
-        //     tras.classList.add('corpo_tras_on');
-        // } else if(frente.class == 'corpo_frente_off'){
-        //     frente.classList.add('corpo_frente_on');
-        //     frente.classList.remove('corpo_frente_off');
-        //     tras.classList.add('corpo_tras_off');
-        //     tras.classList.remove('corpo_tras_on');
-        // }
     }
 </script>
