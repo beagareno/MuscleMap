@@ -1,3 +1,5 @@
+/* INÍCIO */
+
 *{
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
@@ -32,6 +34,8 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .mlogo{
@@ -53,7 +57,8 @@ body{
     margin-right: 10px;
 }
 
-.buttons button{
+.buttons a{
+    text-decoration: none;
     width: 130px;
     height: 40px;
     background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%);
@@ -69,6 +74,70 @@ body{
     cursor: pointer;
     border: 0;
 }
+
+.manequim{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.corpo_frente_on{
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    max-width: 50%;
+}
+
+.corpo_frente_off{
+    display: none;
+}
+
+.corpo_tras_on{
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    max-width: 50%;
+}
+
+.corpo_tras_off{
+    display: none;
+}
+
+.virar{
+    display: flex;
+    justify-self: center;
+    background-color: rgb(61, 57, 57);
+    border: 0;
+    cursor: pointer;
+    height: 55px;
+    width: 50px;
+}
+
+.img_virar{
+    width: 100%;
+}
+
+.escolha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.escolha h1{
+    color: yellow;
+}
+
+.escolha select{
+    margin-bottom: 300px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-left: 5px;
+    outline: none;
+}
+
+/* CADASTRO */
 
 .cadastro{
     background-color: #c7bebe;
@@ -130,6 +199,8 @@ body{
     cursor: pointer;
     transition: background 0.5s ease;
 }
+
+/* LOGIN */
 
 .login{
     background-color: #c7bebe;

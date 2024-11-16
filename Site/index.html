@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuscleMap | Cadastro</title>
+    <link rel="shortcut icon" type="imagex/png" href="img/logo_musclemap.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="head">
+       <div class="logos"> 
+            <a href="index.html" class="logo">Muscle<span class="mlogo">Map</span></a>
+            <img class="imglogo" src="img/logo_musclemap.png" alt="">
+        </div>
+            <div class="buttons">
+                <a>Calculadora</a>
+                <a href="cadastro.html">Cadastrar</a>
+                <a href="login.html">Login</a>
+            </div>
+
+        </div>
+    </header>
+
+    <button onclick="virar()" class="virar">
+        <img class="img_virar" src="img/virar.png" alt="">
+    </button>
+
+    <div id="div_manequim" class="manequim">
+
+        <div class="escolha">
+            <h1>Escolha um músculo</h1>
+            <select id="slct_musculo_frente">
+                <option value="">Peitoral Maior</option>
+                <option value="">Peitoral Menor</option>
+                <option value="">Deltóide Anterior</option>
+                <option value="">Deltóide Lateral</option>
+                <option value="">Bíceps Cabeça Longa</option>
+                <option value="">Bíceps Cabeça Curta</option>
+                <option value="">Braquial</option>
+                <option value="">Tríceps Cabeça Longa</option>
+                <option value="">Tríceps Cabeça Lateral</option>
+                <option value="">Tríceps Cabeça Medial</option>
+                <option value="">Abdômen</option>
+                <option value="">Reto Femoral</option>
+                <option value="">Vasto Lateral</option>
+                <option value="">Vasto Medial</option>
+                <option value="">Vasto Intermédio</option>
+                <option value="">Adutores</option>
+                <option value="">Abdutores</option>
+            </select>
+            </div>
+
+    <div id="corpo_frente" class="corpo_frente_on">
+        <img src="img/corpo_frente.png" alt="">
+    </div>
+
+    <div id="corpo_tras" class="corpo_tras_off">
+        <img src="img/corpo_tras.png" alt="">
+    </div>
+
+    </div>
+
+    
+
+</body>
+</html>
+
+<script>
+    function virar(){
+
+        if(corpo_frente.className == 'corpo_frente_on'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            corpo_tras.classList.remove('corpo_tras_off');
+            corpo_tras.classList.add('corpo_tras_on');
+        } else if(corpo_tras.className == 'corpo_tras_on'){
+            corpo_frente.classList.add('corpo_frente_on');
+            corpo_frente.classList.remove('corpo_frente_off');
+            corpo_tras.classList.add('corpo_tras_off');
+            corpo_tras.classList.remove('corpo_tras_on');
+        }
+
+        // if(tras.class == 'corpo_tras_off'){
+        //     frente.classList.remove('corpo_frente_on');
+        //     frente.classList.add('corpo_frente_off');
+        //     tras.classList.remove('corpo_tras_off');
+        //     tras.classList.add('corpo_tras_on');
+        // } else if(frente.class == 'corpo_frente_off'){
+        //     frente.classList.add('corpo_frente_on');
+        //     frente.classList.remove('corpo_frente_off');
+        //     tras.classList.add('corpo_tras_off');
+        //     tras.classList.remove('corpo_tras_on');
+        // }
+    }
+</script>
