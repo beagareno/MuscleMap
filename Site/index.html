@@ -38,14 +38,16 @@
             <h1>Escolha um músculo <br> (Superiores)</h1>
 
             <select id="slct_musculo_frente_sup">
-                <option value="">Peitoral Maior</option>
-                <option value="">Peitoral Menor</option>
-                <option value="">Deltóide Anterior</option>
-                <option value="">Deltóide Lateral</option>
-                <option value="">Bíceps Cabeça Longa</option>
-                <option value="">Bíceps Cabeça Curta</option>
-                <option value="">Braquial</option>
-                <option value="">Abdômen</option>
+                <option value="#" disabled selected>Selecione</option>
+                <option>Peitoral Superior</option>
+                <option>Peitoral Medial</option>
+                <option>Peitoral Inferior</option>
+                <option>Deltóide Anterior</option>
+                <option>Deltóide Lateral</option>
+                <option>Bíceps Cabeça Longa</option>
+                <option>Bíceps Cabeça Curta</option>
+                <option>Braquial</option>
+                <option>Abdômen</option>
             </select>
 
         </form>
@@ -55,21 +57,30 @@
             <h1>Escolha um músculo <br> (Superiores)</h1>
 
             <select id="slct_musculo_tras_sup">
-                <option value="">Trapézio</option>
-                <option value="">Lattíssimo do Dorso</option>
-                <option value="">Rombóides</option>
-                <option value="">Eretor de Espinha</option>
-                <option value="">Quadrado Lombar</option>
-                <option value="">Deltóide Posterior</option>
-                <option value="">Tríceps Cabeça Longa</option>
-                <option value="">Tríceps Cabeça Lateral</option>
-                <option value="">Tríceps Cabeça Medial</option>
+                <option value="#" disabled selected>Selecione</option>
+                <option>Trapézio</option>
+                <option>Lattíssimo do Dorso</option>
+                <option>Rombóides</option>
+                <option>Eretor de Espinha</option>
+                <option>Quadrado Lombar</option>
+                <option>Deltóide Posterior</option>
+                <option>Tríceps Cabeça Longa</option>
+                <option>Tríceps Cabeça Lateral</option>
+                <option>Tríceps Cabeça Medial</option>
             </select>
 
         </form>
 
         <div id="corpo_frente" class="corpo_frente_on">
             <img style="height: 90%; width: 70%;" src="img/corpo_frente.png" alt="">
+        </div>
+
+        <div id="musculo_destaque" class="musculo_destaque_off">
+            <img id="peito_sup" style="height: 90%; width: 70%; display: none;" src="img/peitoral_superior.png" alt="">
+            <img id="peito_med" style="height: 90%; width: 70%; display: none;" src="img/peitoral_medial.png" alt="">
+            <img id="peito_inf" style="height: 90%; width: 70%; display: none;" src="img/peitoral_inferior.png" alt="">
+            <img id="deltoide_ant" style="height: 90%; width: 70%; display: none;" src="img/deltoide_anterior.png" alt="">
+            <img id="deltoide_lat" style="height: 90%; width: 70%; display: none;" src="img/deltoide_lateral.png" alt="">
         </div>
 
         <div id="corpo_tras" class="corpo_tras_off">
@@ -81,12 +92,13 @@
             <h1>Escolha um músculo <br> (Inferiores)</h1>
 
             <select id="slct_musculo_frente_inf">
-                <option value="">Reto Femoral</option>
-                <option value="">Vasto Lateral</option>
-                <option value="">Vasto Medial</option>
-                <option value="">Vasto Intermédio</option>
-                <option value="">Adutores</option>
-                <option value="">Abdutores</option>
+                <option value="#" disabled selected>Selecione</option>
+                <option>Reto Femoral</option>
+                <option>Vasto Lateral</option>
+                <option>Vasto Medial</option>
+                <option>Vasto Intermédio</option>
+                <option>Adutores</option>
+                <option>Abdutores</option>
             </select>
 
         </form>
@@ -96,14 +108,15 @@
             <h1>Escolha um músculo <br> (Inferiores)</h1>
         
             <select id="slct_musculo_tras_inf">
-                <option value="">Bíceps Femoral</option>
-                <option value="">Semitendíneo</option>
-                <option value="">Semimembranoso</option>
-                <option value="">Glúteo Máximo</option>
-                <option value="">Glúteo Médio</option>
-                <option value="">Glúteo Mínimo</option>
-                <option value="">Gêmeos</option>
-                <option value="">Sóleo</option>
+                <option value="#" disabled selected>Selecione</option>
+                <option>Bíceps Femoral</option>
+                <option>Semitendíneo</option>
+                <option>Semimembranoso</option>
+                <option>Glúteo Máximo</option>
+                <option>Glúteo Médio</option>
+                <option>Glúteo Mínimo</option>
+                <option>Gêmeos</option>
+                <option>Sóleo</option>
             </select>
 
         </form>
@@ -116,6 +129,7 @@
 </html>
 
 <script>
+
     function virar() {
 
         const corpo_frente = document.getElementById('corpo_frente');
@@ -124,6 +138,12 @@
         const form_tras_sup = document.getElementById('form_tras_sup');
         const form_frente_inf = document.getElementById('form_frente_inf');
         const form_tras_inf = document.getElementById('form_tras_inf');
+        const musculo_destaque = document.getElementById('musculo_destaque');
+        const peito_sup = document.getElementById('peito_sup');
+        const peito_med = document.getElementById('peito_med');
+        const peito_inf = document.getElementById('peito_inf');
+        const deltoide_ant = document.getElementById('deltoide_ant');
+        const deltoide_lat = document.getElementById('deltoide_lat');
 
         if (corpo_frente.className == 'corpo_frente_on') {
 
@@ -151,4 +171,69 @@
         }
 
     }
+
+    
+
+    function criar_treino(){
+        var musculo_frente_sup = slct_musculo_frente_sup.value;
+        var musculo_frente_inf = slct_musculo_frente_inf.value;
+        var musculo_tras_sup = slct_musculo_tras_sup.value;
+        var musculo_tras_inf = slct_musculo_tras_inf.value;
+
+        if((musculo_frente_sup == '#' && musculo_frente_inf == '#') && (musculo_tras_sup == '#' && musculo_tras_inf == '#')){
+            alert('Selecione um músculo para montar seu treino')
+        } else if(musculo_frente_sup == 'Peitoral Superior'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            deltoide_lat.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            peito_sup.style.display = 'flex';
+        } else if(musculo_frente_sup == 'Peitoral Medial'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            deltoide_lat.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_inf.style.display = 'none';
+            peito_med.style.display = 'flex';
+        } else if(musculo_frente_sup == 'Peitoral Inferior'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            deltoide_lat.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'flex';
+        } else if(musculo_frente_sup == 'Deltóide Anterior'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            deltoide_lat.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'flex';
+        } else if(musculo_frente_sup == 'Deltóide Lateral'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'flex';
+        }
+    }
+
+
 </script>
