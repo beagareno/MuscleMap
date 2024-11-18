@@ -81,6 +81,9 @@
             <img id="peito_inf" style="height: 90%; width: 70%; display: none;" src="img/peitoral_inferior.png" alt="">
             <img id="deltoide_ant" style="height: 90%; width: 70%; display: none;" src="img/deltoide_anterior.png" alt="">
             <img id="deltoide_lat" style="height: 90%; width: 70%; display: none;" src="img/deltoide_lateral.png" alt="">
+            <img id="biceps_longa" style="height: 90%; width: 70%; display: none;" src="img/biceps_longa.png" alt="">
+            <img id="biceps_curta" style="height: 90%; width: 70%; display: none;" src="img/biceps_curta.png" alt="">
+            <img id="braquial" style="height: 90%; width: 70%; display: none;" src="img/braquial.png" alt="">
         </div>
 
         <div id="corpo_tras" class="corpo_tras_off">
@@ -129,24 +132,30 @@
 </html>
 
 <script>
+    const corpo_frente = document.getElementById('corpo_frente');
+    const corpo_tras = document.getElementById('corpo_tras');
+    const form_frente_sup = document.getElementById('form_frente_sup');
+    const form_tras_sup = document.getElementById('form_tras_sup');
+    const form_frente_inf = document.getElementById('form_frente_inf');
+    const form_tras_inf = document.getElementById('form_tras_inf');
+    const musculo_destaque = document.getElementById('musculo_destaque');
+    const peito_sup = document.getElementById('peito_sup');
+    const peito_med = document.getElementById('peito_med');
+    const peito_inf = document.getElementById('peito_inf');
+    const deltoide_ant = document.getElementById('deltoide_ant');
+    const deltoide_lat = document.getElementById('deltoide_lat');
+    const biceps_longa = document.getElementById('biceps_longa');
+    const biceps_curta = document.getElementById('biceps_curta');
+    const braquial = document.getElementById('braquial');
+
 
     function virar() {
 
-        const corpo_frente = document.getElementById('corpo_frente');
-        const corpo_tras = document.getElementById('corpo_tras');
-        const form_frente_sup = document.getElementById('form_frente_sup');
-        const form_tras_sup = document.getElementById('form_tras_sup');
-        const form_frente_inf = document.getElementById('form_frente_inf');
-        const form_tras_inf = document.getElementById('form_tras_inf');
-        const musculo_destaque = document.getElementById('musculo_destaque');
-        const peito_sup = document.getElementById('peito_sup');
-        const peito_med = document.getElementById('peito_med');
-        const peito_inf = document.getElementById('peito_inf');
-        const deltoide_ant = document.getElementById('deltoide_ant');
-        const deltoide_lat = document.getElementById('deltoide_lat');
 
-        if (corpo_frente.className == 'corpo_frente_on') {
+        if (corpo_frente.className == 'corpo_frente_on' || musculo_destaque.className == 'musculo_detaque_on') {
 
+            musculo_destaque.classList.add('musculo_destaque_off');
+            musculo_destaque.classList.remove('musculo_destaque_on');
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             corpo_tras.classList.remove('corpo_tras_off');
@@ -156,18 +165,24 @@
             form_tras_sup.style.display = 'flex';
             form_frente_inf.style.display = 'none';
             form_tras_inf.style.display = 'flex';
+            // musculo_destaque.style.display = 'none';
 
-        } else if (corpo_tras.className == 'corpo_tras_on') {
+        } else if (corpo_tras.className == 'corpo_tras_on' || musculo_destaque.className == 'musculo_destaque_on') {
 
+            musculo_destaque.classList.add('musculo_destaque_off');
+            musculo_destaque.classList.remove('musculo_destaque_on');
             corpo_frente.classList.add('corpo_frente_on');
             corpo_frente.classList.remove('corpo_frente_off');
             corpo_tras.classList.add('corpo_tras_off');
             corpo_tras.classList.remove('corpo_tras_on');
-
+            
             form_frente_sup.style.display = 'flex';
             form_tras_sup.style.display = 'none';
             form_frente_inf.style.display = 'flex';
             form_tras_inf.style.display = 'none';
+            // musculo_destaque.style.display = 'none';
+        } else{
+            corpo_frente.classList.add('corpo_frente_on');
         }
 
     }
@@ -187,6 +202,9 @@
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            braquial.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            biceps_longa.style.display = 'none';
             deltoide_lat.style.display = 'none';
             deltoide_ant.style.display = 'none';
             peito_med.style.display = 'none';
@@ -197,6 +215,9 @@
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            braquial.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            biceps_longa.style.display = 'none';
             deltoide_lat.style.display = 'none';
             deltoide_ant.style.display = 'none';
             peito_sup.style.display = 'none';
@@ -207,6 +228,9 @@
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            braquial.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            biceps_longa.style.display = 'none';
             deltoide_lat.style.display = 'none';
             deltoide_ant.style.display = 'none';
             peito_sup.style.display = 'none';
@@ -217,6 +241,9 @@
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            braquial.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            biceps_longa.style.display = 'none';
             deltoide_lat.style.display = 'none';
             peito_sup.style.display = 'none';
             peito_med.style.display = 'none';
@@ -227,11 +254,53 @@
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            braquial.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            biceps_longa.style.display = 'none'; 
             peito_sup.style.display = 'none';
             peito_med.style.display = 'none';
             peito_inf.style.display = 'none';
             deltoide_ant.style.display = 'none';
             deltoide_lat.style.display = 'flex';
+        } else if(musculo_frente_sup == 'Bíceps Cabeça Longa'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            braquial.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'flex'; 
+        } else if(musculo_frente_sup == 'Bíceps Cabeça Curta'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            braquial.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'none';
+            biceps_curta.style.display = 'flex';
+        } else if(musculo_frente_sup == 'Braquial'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            braquial.style.display = 'flex';
         }
     }
 
