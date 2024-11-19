@@ -33,11 +33,11 @@
 
     <div id="div_manequim" class="manequim">
 
-        <form id="form_frente_sup" class="escolha_frente">
+        <div id="form_frente_sup" class="escolha_frente">
 
-            <h1>Escolha um músculo <br> (Superiores)</h1>
+            <h1>Escolha um músculo</h1>
 
-            <select id="slct_musculo_frente_sup">
+            <select id="slct_musculo_frente">
                 <option value="#" disabled selected>Selecione</option>
                 <option>Peitoral Superior</option>
                 <option>Peitoral Medial</option>
@@ -48,15 +48,20 @@
                 <option>Bíceps Cabeça Curta</option>
                 <option>Braquial</option>
                 <option>Abdômen</option>
+                <option>Reto Femoral</option>
+                <option>Vasto Lateral</option>
+                <option>Vasto Medial</option>
+                <option>Adutores</option>
+                <option>Abdutores</option>
             </select>
 
-        </form>
+        </div>
 
         <form id="form_tras_sup" class="escolha_tras">
 
-            <h1>Escolha um músculo <br> (Superiores)</h1>
+            <h1>Escolha um músculo</h1>
 
-            <select id="slct_musculo_tras_sup">
+            <select id="slct_musculo_tras">
                 <option value="#" disabled selected>Selecione</option>
                 <option>Trapézio</option>
                 <option>Lattíssimo do Dorso</option>
@@ -67,6 +72,14 @@
                 <option>Tríceps Cabeça Longa</option>
                 <option>Tríceps Cabeça Lateral</option>
                 <option>Tríceps Cabeça Medial</option>
+                <option>Bíceps Femoral</option>
+                <option>Semitendíneo</option>
+                <option>Semimembranoso</option>
+                <option>Glúteo Máximo</option>
+                <option>Glúteo Médio</option>
+                <option>Glúteo Mínimo</option>
+                <option>Gêmeos</option>
+                <option>Sóleo</option>
             </select>
 
         </form>
@@ -84,45 +97,35 @@
             <img id="biceps_longa" style="height: 90%; width: 70%; display: none;" src="img/biceps_longa.png" alt="">
             <img id="biceps_curta" style="height: 90%; width: 70%; display: none;" src="img/biceps_curta.png" alt="">
             <img id="braquial" style="height: 90%; width: 70%; display: none;" src="img/braquial.png" alt="">
+            <img id="abdomen" style="height: 90%; width: 70%; display: none;" src="img/abdomen.png" alt="">
+            <img id="reto_femoral" style="height: 90%; width: 70%; display: none;" src="img/reto_femoral.png" alt="">
+            <img id="vasto_lateral" style="height: 90%; width: 70%; display: none;" src="img/vasto_lateral.png" alt="">
+            <img id="vasto_medial" style="height: 90%; width: 70%; display: none;" src="img/vasto_medial.png" alt="">
+            <img id="adutor" style="height: 90%; width: 70%; display: none;" src="img/adutor.png" alt="">
+            <img id="abdutor" style="height: 90%; width: 70%; display: none;" src="img/abdutor.png" alt="">
+
         </div>
 
         <div id="corpo_tras" class="corpo_tras_off">
             <img style="height: 90%; width: 70%;" src="img/corpo_tras.png" alt="">
         </div>
 
-        <form id="form_frente_inf" class="escolha_frente">
+        <div id="div_resultado_treino" class="resultado_treino">
 
-            <h1>Escolha um músculo <br> (Inferiores)</h1>
+            <h1>Seu treino</h1> 
 
-            <select id="slct_musculo_frente_inf">
-                <option value="#" disabled selected>Selecione</option>
-                <option>Reto Femoral</option>
-                <option>Vasto Lateral</option>
-                <option>Vasto Medial</option>
-                <option>Vasto Intermédio</option>
-                <option>Adutores</option>
-                <option>Abdutores</option>
-            </select>
+        </div>
 
-        </form>
-
-        <form id="form_tras_inf" class="escolha_tras">
+        <!-- <form id="form_tras_inf" class="escolha_tras">
 
             <h1>Escolha um músculo <br> (Inferiores)</h1>
         
             <select id="slct_musculo_tras_inf">
                 <option value="#" disabled selected>Selecione</option>
-                <option>Bíceps Femoral</option>
-                <option>Semitendíneo</option>
-                <option>Semimembranoso</option>
-                <option>Glúteo Máximo</option>
-                <option>Glúteo Médio</option>
-                <option>Glúteo Mínimo</option>
-                <option>Gêmeos</option>
-                <option>Sóleo</option>
+                
             </select>
 
-        </form>
+        </form> -->
 
     </div>
 
@@ -147,6 +150,12 @@
     const biceps_longa = document.getElementById('biceps_longa');
     const biceps_curta = document.getElementById('biceps_curta');
     const braquial = document.getElementById('braquial');
+    const abdomen = document.getElementById('abdomen');
+    const reto_femoral = document.getElementById('reto_femoral');
+    const vasto_lateral = document.getElementById('vasto_lateral');
+    const vasto_medial = document.getElementById('vasto_medial');
+    const adutor = document.getElementById('adutor');
+    const abdutor = document.getElementById('abdutor');
 
 
     function virar() {
@@ -190,18 +199,24 @@
     
 
     function criar_treino(){
-        var musculo_frente_sup = slct_musculo_frente_sup.value;
-        var musculo_frente_inf = slct_musculo_frente_inf.value;
-        var musculo_tras_sup = slct_musculo_tras_sup.value;
+        var musculo_frente = slct_musculo_frente.value;
+        var musculo_tras_sup = slct_musculo_tras.value;
         var musculo_tras_inf = slct_musculo_tras_inf.value;
 
-        if((musculo_frente_sup == '#' && musculo_frente_inf == '#') && (musculo_tras_sup == '#' && musculo_tras_inf == '#')){
+        if((musculo_frente == '#' && musculo_frente_inf == '#') && (musculo_tras_sup == '#' && musculo_tras_inf == '#')){
             alert('Selecione um músculo para montar seu treino')
-        } else if(musculo_frente_sup == 'Peitoral Superior'){
+        } else if(musculo_frente == 'Peitoral Superior'){
+            slct_musculo_frente.value = '#'
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            abdomen.style.display = 'none';
             braquial.style.display = 'none';
             biceps_curta.style.display = 'none';
             biceps_longa.style.display = 'none';
@@ -210,11 +225,18 @@
             peito_med.style.display = 'none';
             peito_inf.style.display = 'none';
             peito_sup.style.display = 'flex';
-        } else if(musculo_frente_sup == 'Peitoral Medial'){
+        } else if(musculo_frente == 'Peitoral Medial'){
+            slct_musculo_frente.value = '#'
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            abdomen.style.display = 'none';
             braquial.style.display = 'none';
             biceps_curta.style.display = 'none';
             biceps_longa.style.display = 'none';
@@ -223,11 +245,17 @@
             peito_sup.style.display = 'none';
             peito_inf.style.display = 'none';
             peito_med.style.display = 'flex';
-        } else if(musculo_frente_sup == 'Peitoral Inferior'){
+        } else if(musculo_frente == 'Peitoral Inferior'){
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            abdomen.style.display = 'none';
             braquial.style.display = 'none';
             biceps_curta.style.display = 'none';
             biceps_longa.style.display = 'none';
@@ -236,11 +264,17 @@
             peito_sup.style.display = 'none';
             peito_med.style.display = 'none';
             peito_inf.style.display = 'flex';
-        } else if(musculo_frente_sup == 'Deltóide Anterior'){
+        } else if(musculo_frente == 'Deltóide Anterior'){
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            abdomen.style.display = 'none';
             braquial.style.display = 'none';
             biceps_curta.style.display = 'none';
             biceps_longa.style.display = 'none';
@@ -249,11 +283,17 @@
             peito_med.style.display = 'none';
             peito_inf.style.display = 'none';
             deltoide_ant.style.display = 'flex';
-        } else if(musculo_frente_sup == 'Deltóide Lateral'){
+        } else if(musculo_frente == 'Deltóide Lateral'){
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            abdomen.style.display = 'none';
             braquial.style.display = 'none';
             biceps_curta.style.display = 'none';
             biceps_longa.style.display = 'none'; 
@@ -262,11 +302,17 @@
             peito_inf.style.display = 'none';
             deltoide_ant.style.display = 'none';
             deltoide_lat.style.display = 'flex';
-        } else if(musculo_frente_sup == 'Bíceps Cabeça Longa'){
+        } else if(musculo_frente == 'Bíceps Cabeça Longa'){
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            abdomen.style.display = 'none';
             braquial.style.display = 'none';
             biceps_curta.style.display = 'none';
             peito_sup.style.display = 'none';
@@ -275,11 +321,17 @@
             deltoide_ant.style.display = 'none';
             deltoide_lat.style.display = 'none';
             biceps_longa.style.display = 'flex'; 
-        } else if(musculo_frente_sup == 'Bíceps Cabeça Curta'){
+        } else if(musculo_frente == 'Bíceps Cabeça Curta'){
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
             musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            abdomen.style.display = 'none';
             braquial.style.display = 'none';
             peito_sup.style.display = 'none';
             peito_med.style.display = 'none';
@@ -288,7 +340,121 @@
             deltoide_lat.style.display = 'none';
             biceps_longa.style.display = 'none';
             biceps_curta.style.display = 'flex';
-        } else if(musculo_frente_sup == 'Braquial'){
+        } else if(musculo_frente == 'Braquial'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            abdomen.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            braquial.style.display = 'flex';
+        } else if(musculo_frente == 'Abdômen'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            braquial.style.display = 'none';
+            abdomen.style.display = 'flex';
+        } else if(musculo_frente == 'Reto Femoral'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            braquial.style.display = 'none';
+            abdomen.style.display = 'none';
+            reto_femoral.style.display = 'flex';
+        } else if(musculo_frente == 'Vasto Lateral'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            braquial.style.display = 'none';
+            abdomen.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            vasto_lateral.style.display = 'flex';
+        } else if(musculo_frente == 'Vasto Medial'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            adutor.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            braquial.style.display = 'none';
+            abdomen.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            vasto_medial.style.display = 'flex';
+        } else if(musculo_frente == 'Adutores'){
+            corpo_frente.classList.remove('corpo_frente_on');
+            corpo_frente.classList.add('corpo_frente_off');
+            musculo_destaque.classList.remove('musculo_destaque_off');
+            musculo_destaque.classList.add('musculo_destaque_on');
+            abdutor.style.display = 'none';
+            peito_sup.style.display = 'none';
+            peito_med.style.display = 'none';
+            peito_inf.style.display = 'none';
+            deltoide_ant.style.display = 'none';
+            deltoide_lat.style.display = 'none';
+            biceps_longa.style.display = 'none';
+            biceps_curta.style.display = 'none';
+            braquial.style.display = 'none';
+            abdomen.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            adutor.style.display = 'flex';
+        } else if(musculo_frente == 'Abdutores'){
             corpo_frente.classList.remove('corpo_frente_on');
             corpo_frente.classList.add('corpo_frente_off');
             musculo_destaque.classList.remove('musculo_destaque_off');
@@ -300,7 +466,13 @@
             deltoide_lat.style.display = 'none';
             biceps_longa.style.display = 'none';
             biceps_curta.style.display = 'none';
-            braquial.style.display = 'flex';
+            braquial.style.display = 'none';
+            abdomen.style.display = 'none';
+            reto_femoral.style.display = 'none';
+            vasto_lateral.style.display = 'none';
+            vasto_medial.style.display = 'none';
+            adutor.style.display = 'none';
+            abdutor.style.display = 'flex';
         }
     }
 

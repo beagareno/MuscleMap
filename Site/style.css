@@ -147,6 +147,18 @@ body{
     text-align: center;
 }
 
+.resultado_treino{
+    display: none;
+
+}
+
+.resultado_treino h1{
+    color: rgb(228, 22, 22);
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+}
+
 .escolha_frente select{
     background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%);
     color: rgb(73, 69, 69);
