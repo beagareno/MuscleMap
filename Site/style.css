@@ -199,30 +199,15 @@ body{
     outline: none;
 }
 
-.musculo_destaque_frente_off{
-    display: none;
-}
-
-.musculo_destaque_frente_on{
+.on{
     display: flex;
     justify-self: center;
     justify-content: center;
     max-width: 50%;
-}
-
-.musculo_destaque_tras_off{
-    display: none;
 }
 
 .off {
     display: none;
-}
-
-.musculo_destaque_tras_on{
-    display: flex;
-    justify-self: center;
-    justify-content: center;
-    max-width: 50%;
 }
 
 /* CADASTRO */
