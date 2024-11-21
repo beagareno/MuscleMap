@@ -56,7 +56,6 @@
                 <option>Trapézio</option>
                 <option>Latíssimo do Dorso</option>
                 <option>Rombóides</option>
-                <option>Eretor de Espinha</option>
                 <option>Quadrado Lombar</option>
                 <option>Deltóide Posterior</option>
                 <option>Tríceps Cabeça Longa</option>
@@ -107,16 +106,12 @@
             <img id="trapezio" style="height: 90%; width: 70%; display: none;" src="img/trapezio.png" alt="">
             <img id="latissimo" style="height: 90%; width: 70%; display: none;" src="img/latissimo.png" alt="">
             <img id="romboides" style="height: 90%; width: 70%; display: none;" src="img/romboides.png" alt="">
+            <img id="lombar" style="height: 90%; width: 70%; display: none;" src="img/lombar.png" alt="">
+            <img id="deltoide_posterior" style="height: 90%; width: 70%; display: none;" src="img/deltoide_posterior.png" alt="">
+            <img id="triceps_longa" style="height: 90%; width: 70%; display: none;" src="img/triceps_longa.png" alt="">
+            <img id="triceps_lateral" style="height: 90%; width: 70%; display: none;" src="img/triceps_lateral.png" alt="">
 
         </div>
-        
-        <!-- <div i
-            
-        </div> -->
-
-        <!-- <div id="corpo_tras" class="off">
-            <img style="height: 90%; width: 70%;" src="img/corpo_tras.png" alt="">
-        </div> -->
 
         <div id="div_resultado_treino" class="resultado_treino">
 
@@ -133,63 +128,10 @@
 
 <script>
     var viradoFrente = true;
-    var parteDestacada = false;
-
-
-// function virar() {  
-//     console.log("viradoFrente:: ", viradoFrente);
-//     var musculo = slct_musculo.value;
-//     var musculo = slct_musculo.value;
-    
-//         if (viradoFrente == true || parteDestacada == true) {
-//             console.log("IF")
-//             corpo_tras.classList.add('on');
-//             corpo_tras.classList.remove('off');
-//             corpo.classList.add('off');
-//             corpo.classList.remove('on');
-            
-
-//             musculo_destaque.classList.remove('off');
-
-//             musculo_destaque.classList.add('off');
-
-//             form_frente.style.display = 'none';
-//             form_tras.style.display = 'flex';
-
-//             viradoFrente = false;
-//             parteDestacada = false;
-//             // form_frente_inf.style.display = 'none';
-//             // form_tras_inf.style.display = 'flex';
-//             // musculo_destaque.style.display = 'flex';
-
-//         } else  if(viradoFrente == false || parteDestacada == true){
-//             console.log("ELSE")
-
-//             corpo.classList.add('on');
-//             corpo.classList.remove('off');
-//             corpo_tras.classList.add('off');
-//             corpo_tras.classList.remove('on');
-            
-            
-
-//             musculo_destaque.classList.add('off');
-//            
-//             // musculo_destaque.classList.remove('off');
-
-//             form_frente.style.display = 'flex';
-//             form_tras.style.display = 'none';
-
-//             viradoFrente = true;
-//             parteDestacada = false;
-//         } 
-
-//     }
-
-    
+    var parteDestacada = false;    
 
     function criar_treino(){
         var musculo = slct_musculo.value;
-        // var musculo = slct_musculo.value;
 
         if((musculo == '#') && (musculo == '#')){
             alert('Selecione um músculo para montar seu treino')
@@ -199,12 +141,16 @@
             musculo_destaque.classList.remove('off');
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
+            triceps_longa.style.display = 'none';
+            triceps_lateral.style.display = 'none';
             romboides.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             adutor.style.display = 'none';
             vasto_medial.style.display = 'none';
             vasto_lateral.style.display = 'none';
             reto_femoral.style.display = 'none';
             abdomen.style.display = 'none';
+            lombar.style.display = 'none';
             braquial.style.display = 'none';
             biceps_curta.style.display = 'none';
             biceps_longa.style.display = 'none';
@@ -220,7 +166,11 @@
             musculo_destaque.classList.remove('off');
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
+            triceps_lateral.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             romboides.style.display = 'none';
+            triceps_longa.style.display = 'none';
+            lombar.style.display = 'none';
             adutor.style.display = 'none';
             vasto_medial.style.display = 'none';
             vasto_lateral.style.display = 'none';
@@ -244,8 +194,12 @@
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
             romboides.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             adutor.style.display = 'none';
+            triceps_longa.style.display = 'none';
+            lombar.style.display = 'none';
             vasto_medial.style.display = 'none';
+            triceps_lateral.style.display = 'none';
             vasto_lateral.style.display = 'none';
             reto_femoral.style.display = 'none';
             abdomen.style.display = 'none';
@@ -266,7 +220,11 @@
             musculo_destaque.classList.remove('off');
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
+            triceps_lateral.style.display = 'none';
             romboides.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
+            triceps_longa.style.display = 'none';
+            lombar.style.display = 'none';
             adutor.style.display = 'none';
             vasto_medial.style.display = 'none';
             vasto_lateral.style.display = 'none';
@@ -290,9 +248,13 @@
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
             romboides.style.display = 'none';
+            triceps_longa.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             adutor.style.display = 'none';
             vasto_medial.style.display = 'none';
+            triceps_lateral.style.display = 'none';
             vasto_lateral.style.display = 'none';
+            lombar.style.display = 'none';
             reto_femoral.style.display = 'none';
             abdomen.style.display = 'none';
             braquial.style.display = 'none';
@@ -312,9 +274,13 @@
             musculo_destaque.classList.remove('off');
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
+            triceps_lateral.style.display = 'none';
             romboides.style.display = 'none';
             adutor.style.display = 'none';
+            triceps_longa.style.display = 'none';
+            lombar.style.display = 'none';
             vasto_medial.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             vasto_lateral.style.display = 'none';
             reto_femoral.style.display = 'none';
             abdomen.style.display = 'none';
@@ -335,11 +301,15 @@
             musculo_destaque.classList.remove('off');
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
+            triceps_lateral.style.display = 'none';
+            lombar.style.display = 'none';
             romboides.style.display = 'none';
+            triceps_longa.style.display = 'none';
             adutor.style.display = 'none';
             vasto_medial.style.display = 'none';
             vasto_lateral.style.display = 'none';
             reto_femoral.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             abdomen.style.display = 'none';
             braquial.style.display = 'none';
             peito_sup.style.display = 'none';
@@ -359,12 +329,16 @@
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
             romboides.style.display = 'none';
+            triceps_lateral.style.display = 'none';
+            triceps_longa.style.display = 'none';
             adutor.style.display = 'none';
             vasto_medial.style.display = 'none';
+            lombar.style.display = 'none';
             vasto_lateral.style.display = 'none';
             reto_femoral.style.display = 'none';
             abdomen.style.display = 'none';
             peito_sup.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             trapezio.style.display = 'none';
             latissimo.style.display = 'none';
             peito_med.style.display = 'none';
@@ -383,11 +357,15 @@
             abdutor.style.display = 'none';
             romboides.style.display = 'none';
             adutor.style.display = 'none';
+            triceps_lateral.style.display = 'none';
+            triceps_longa.style.display = 'none';
             vasto_medial.style.display = 'none';
             vasto_lateral.style.display = 'none';
+            lombar.style.display = 'none';
             reto_femoral.style.display = 'none';
             peito_sup.style.display = 'none';
             trapezio.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             latissimo.style.display = 'none';
             peito_med.style.display = 'none';
             peito_inf.style.display = 'none';
@@ -404,13 +382,17 @@
             musculo_destaque.classList.remove('off');
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
+            triceps_lateral.style.display = 'none';
+            lombar.style.display = 'none';
             romboides.style.display = 'none';
             adutor.style.display = 'none';
+            triceps_longa.style.display = 'none';
             vasto_medial.style.display = 'none';
             vasto_lateral.style.display = 'none';
             peito_sup.style.display = 'none';
             trapezio.style.display = 'none';
             latissimo.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             peito_med.style.display = 'none';
             peito_inf.style.display = 'none';
             deltoide_ant.style.display = 'none';
@@ -427,10 +409,14 @@
             musculo_destaque.classList.remove('off');
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
+            lombar.style.display = 'none';
             romboides.style.display = 'none';
             adutor.style.display = 'none';
+            triceps_lateral.style.display = 'none';
+            triceps_longa.style.display = 'none';
             vasto_medial.style.display = 'none';
             peito_sup.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             trapezio.style.display = 'none';
             latissimo.style.display = 'none';
             peito_med.style.display = 'none';
@@ -451,11 +437,15 @@
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
             romboides.style.display = 'none';
+            lombar.style.display = 'none';
+            triceps_lateral.style.display = 'none';
             adutor.style.display = 'none';
+            triceps_longa.style.display = 'none';
             peito_sup.style.display = 'none';
             trapezio.style.display = 'none';
             latissimo.style.display = 'none';
             peito_med.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             peito_inf.style.display = 'none';
             deltoide_ant.style.display = 'none';
             deltoide_lat.style.display = 'none';
@@ -474,11 +464,15 @@
             musculo_destaque.classList.add('on');
             abdutor.style.display = 'none';
             romboides.style.display = 'none';
+            triceps_lateral.style.display = 'none';
+            triceps_longa.style.display = 'none';
+            lombar.style.display = 'none';
             peito_sup.style.display = 'none';
             trapezio.style.display = 'none';
             latissimo.style.display = 'none';
             peito_med.style.display = 'none';
             peito_inf.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             deltoide_ant.style.display = 'none';
             deltoide_lat.style.display = 'none';
             biceps_longa.style.display = 'none';
@@ -496,7 +490,10 @@
             musculo_destaque.classList.remove('off');
             musculo_destaque.classList.add('on');
             peito_sup.style.display = 'none';
+            lombar.style.display = 'none';
             romboides.style.display = 'none';
+            triceps_lateral.style.display = 'none';
+            triceps_longa.style.display = 'none';
             trapezio.style.display = 'none';
             latissimo.style.display = 'none';
             peito_med.style.display = 'none';
@@ -506,6 +503,7 @@
             biceps_longa.style.display = 'none';
             biceps_curta.style.display = 'none';
             braquial.style.display = 'none';
+            deltoide_posterior.style.display = 'none';
             abdomen.style.display = 'none';
             reto_femoral.style.display = 'none';
             vasto_lateral.style.display = 'none';
@@ -516,13 +514,18 @@
         } if(musculo == 'Trapézio'){
                 musculo_destaque.style.display = 'flex';
                 corpo.style.display = 'none';
+                lombar.style.display = 'none';
+                lombar.style.display = 'none';
                 romboides.style.display = 'none';
                 peito_sup.style.display = 'none';
+                triceps_lateral.style.display = 'none';
+                triceps_longa.style.display = 'none';
                 peito_med.style.display = 'none';
                 peito_inf.style.display = 'none';
                 deltoide_ant.style.display = 'none';
                 deltoide_lat.style.display = 'none';
                 biceps_longa.style.display = 'none';
+                deltoide_posterior.style.display = 'none';
                 biceps_curta.style.display = 'none';
                 braquial.style.display = 'none';
                 abdomen.style.display = 'none';
@@ -538,6 +541,106 @@
                 musculo_destaque.style.display = 'flex';
                 corpo.style.display = 'none';
                 romboides.style.display = 'none';
+                lombar.style.display = 'none';
+                peito_sup.style.display = 'none';
+                peito_med.style.display = 'none';
+                triceps_lateral.style.display = 'none';
+                peito_inf.style.display = 'none';
+                deltoide_posterior.style.display = 'none';
+                deltoide_ant.style.display = 'none';
+                deltoide_lat.style.display = 'none';
+                triceps_longa.style.display = 'none';
+                biceps_longa.style.display = 'none';
+                biceps_curta.style.display = 'none';
+                braquial.style.display = 'none';
+                abdomen.style.display = 'none';
+                reto_femoral.style.display = 'none';
+                vasto_lateral.style.display = 'none';
+                vasto_medial.style.display = 'none';
+                adutor.style.display = 'none';
+                abdutor.style.display = 'none';
+                trapezio.style.display = 'none';
+                latissimo.style.display = 'flex';
+                parteDestacada = true;
+            } else if(musculo == 'Rombóides'){
+                musculo_destaque.style.display = 'flex';
+                corpo.style.display = 'none';
+                lombar.style.display = 'none';
+                deltoide_posterior.style.display = 'none';
+                peito_sup.style.display = 'none';
+                peito_med.style.display = 'none';
+                peito_inf.style.display = 'none';
+                triceps_lateral.style.display = 'none';
+                deltoide_ant.style.display = 'none';
+                deltoide_lat.style.display = 'none';
+                triceps_longa.style.display = 'none';
+                biceps_longa.style.display = 'none';
+                biceps_curta.style.display = 'none';
+                braquial.style.display = 'none';
+                abdomen.style.display = 'none';
+                reto_femoral.style.display = 'none';
+                vasto_lateral.style.display = 'none';
+                vasto_medial.style.display = 'none';
+                adutor.style.display = 'none';
+                abdutor.style.display = 'none';
+                trapezio.style.display = 'none';
+                latissimo.style.display = 'none';
+                romboides.style.display = 'flex';
+                parteDestacada = true;
+            } else if(musculo == 'Quadrado Lombar'){
+                musculo_destaque.style.display = 'flex';
+                corpo.style.display = 'none';
+                deltoide_posterior.style.display = 'none';
+                peito_sup.style.display = 'none';
+                peito_med.style.display = 'none';
+                peito_inf.style.display = 'none';
+                triceps_lateral.style.display = 'none';
+                deltoide_ant.style.display = 'none';
+                triceps_longa.style.display = 'none';
+                deltoide_lat.style.display = 'none';
+                biceps_longa.style.display = 'none';
+                biceps_curta.style.display = 'none';
+                braquial.style.display = 'none';
+                abdomen.style.display = 'none';
+                reto_femoral.style.display = 'none';
+                vasto_lateral.style.display = 'none';
+                vasto_medial.style.display = 'none';
+                adutor.style.display = 'none';
+                abdutor.style.display = 'none';
+                trapezio.style.display = 'none';
+                latissimo.style.display = 'none';
+                romboides.style.display = 'none';
+                lombar.style.display = 'flex';
+                parteDestacada = true;
+            } else if(musculo == 'Deltóide Posterior'){
+                musculo_destaque.style.display = 'flex';
+                corpo.style.display = 'none';
+                peito_sup.style.display = 'none';
+                peito_med.style.display = 'none';
+                triceps_lateral.style.display = 'none';
+                triceps_longa.style.display = 'none';
+                peito_inf.style.display = 'none';
+                deltoide_ant.style.display = 'none';
+                deltoide_lat.style.display = 'none';
+                biceps_longa.style.display = 'none';
+                biceps_curta.style.display = 'none';
+                braquial.style.display = 'none';
+                abdomen.style.display = 'none';
+                reto_femoral.style.display = 'none';
+                vasto_lateral.style.display = 'none';
+                vasto_medial.style.display = 'none';
+                adutor.style.display = 'none';
+                abdutor.style.display = 'none';
+                trapezio.style.display = 'none';
+                latissimo.style.display = 'none';
+                romboides.style.display = 'none';
+                lombar.style.display = 'none';
+                deltoide_posterior.style.display = 'flex';
+                parteDestacada = true;
+            } else if(musculo == 'Tríceps Cabeça Longa'){
+                musculo_destaque.style.display = 'flex';
+                corpo.style.display = 'none';
+                triceps_lateral.style.display = 'none';
                 peito_sup.style.display = 'none';
                 peito_med.style.display = 'none';
                 peito_inf.style.display = 'none';
@@ -553,9 +656,13 @@
                 adutor.style.display = 'none';
                 abdutor.style.display = 'none';
                 trapezio.style.display = 'none';
-                latissimo.style.display = 'flex';
+                latissimo.style.display = 'none';
+                romboides.style.display = 'none';
+                lombar.style.display = 'none';
+                deltoide_posterior.style.display = 'none';
+                triceps_longa.style.display = 'flex';
                 parteDestacada = true;
-            } else if(musculo == 'Rombóides'){
+            } else if(musculo == 'Tríceps Cabeça Lateral'){
                 musculo_destaque.style.display = 'flex';
                 corpo.style.display = 'none';
                 peito_sup.style.display = 'none';
@@ -574,7 +681,11 @@
                 abdutor.style.display = 'none';
                 trapezio.style.display = 'none';
                 latissimo.style.display = 'none';
-                romboides.style.display = 'flex';
+                romboides.style.display = 'none';
+                lombar.style.display = 'none';
+                deltoide_posterior.style.display = 'none';
+                triceps_longa.style.display = 'none';
+                triceps_lateral.style.display = 'flex';
                 parteDestacada = true;
             }
 
