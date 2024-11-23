@@ -26,17 +26,139 @@
     <form class="cadastro">
         <h1>Cadastro</h1>
         <span class="linha"></span>
-        <input oninput="validarNome()" type="text" id="ipt_razao" placeholder="Nome">
-        <div id="nome"></div>
+        <input oninput="validarNome()" type="text" id="ipt_nome" placeholder="Nome">
+        <div id="div_nome" class="validacao"></div>
         <input oninput="validarEmail()" type="text" id="ipt_email" placeholder="E-mail">
-        <div id="ema"></div>
+        <div id="div_email" class="validacao"></div>
         <input oninput="validarSenha()" type="password" id="ipt_senha" placeholder="Senha">
-        <div id="senhas"></div>
+        <div id="div_senha" class="validacao"></div>
         <input oninput="validarConfirmacao()" type="password" id="ipt_confirm" placeholder="Confirme a senha">
-        <div id="conSenha"></div>
+        <div id="div_confSenha" class="validacao"></div>
 
         <button onclick="validarCadastro()">Cadastrar-se</button>
     </form>
 
 </body>
 </html>
+
+<script>
+    var correto = false;
+    var abc = true;
+    // validado.innerHTML = ""
+
+    function validarNome(){
+        var nome = ipt_nome.value;
+        ipt_nome.value = nome.replaceAll('!', '')
+            .replaceAll('@', '')
+            .replaceAll('#', '')
+            .replaceAll('$', '')
+            .replaceAll('%', '')
+            .replaceAll('¨', '')
+            .replaceAll('*', '')
+            .replaceAll('(', '')
+            .replaceAll(')', '')
+
+        if (nome.length >= 3) {
+            ipt_nome.style.border = "3px solid #08a708";
+            div_nome.innerHTML = ``;
+        } else {
+            correto = false;
+            ipt_nome.style.border = "3px solid #f70000";
+            div_nome.innerHTML = `<b>O nome deve conter pelo menos 3 letras</b>`;
+        }
+
+        if(nome.length == 0){
+            div_nome.innerHTML = ``;
+            ipt_nome.style.border = "0";
+            correto = false;
+        }
+    }
+
+    function validarEmail(){
+        var email = ipt_email.value;
+        var possui_arroba = ipt_email.value.includes("@");
+        var termina_com = email.endsWith("sptech.school")
+            || email.endsWith('.com')
+            || email.endsWith('.br')
+            || email.endsWith('.net')
+
+        if (email.length > 3 && possui_arroba && termina_com) {
+            ipt_email.style.border = "3px solid #08a708";
+            div_email.innerHTML = ``;
+        } else {
+            div_email.innerHTML = 
+            `<b>O e-mail deve possuir '@' <br>
+             e acabar em '.com', '.br', '.net' ou '.sptech.school'</b>`;
+            correto = false;
+            ipt_email.style.border = "3px solid #f70000";
+        }
+
+        if(email.length == 0){
+            div_email.innerHTML = ``;
+            ipt_email.style.border = "0";
+            correto = false;
+        }
+    }
+
+    function validarSenha(){
+        var senha = ipt_senha.value;
+
+        var possui_esp = ipt_senha.value.includes("!")
+            || ipt_senha.value.includes("@")
+            || ipt_senha.value.includes("#")
+            || ipt_senha.value.includes("$")
+            || ipt_senha.value.includes("%")
+            || ipt_senha.value.includes("*")
+            || ipt_senha.value.includes("&")
+
+        var possui_num = ipt_senha.value.includes("1")
+            || ipt_senha.value.includes("2")
+            || ipt_senha.value.includes("3")
+            || ipt_senha.value.includes("4")
+            || ipt_senha.value.includes("5")
+            || ipt_senha.value.includes("6")
+            || ipt_senha.value.includes("7")
+            || ipt_senha.value.includes("8")
+            || ipt_senha.value.includes("9")
+            || ipt_senha.value.includes("0")
+
+        var texto_minusculo = senha.toLowerCase();
+        var texto_maiusculo = senha.toUpperCase();
+
+        abc = (senha != texto_maiusculo && senha != texto_minusculo);
+
+        if (abc && senha.length >= 8 && possui_esp && possui_num) {
+            div_senha.innerHTML = ``;
+            ipt_senha.style.border = '3px solid #08a708';
+        } else {
+            div_senha.innerHTML = `<b>A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial, uma letra maiúscula, uma letra minúscula e um número.</b>`;
+            ipt_senha.style.border = '3px solid #f70000';
+            correto = false;
+        }
+
+        if(senha.length == 0){
+            div_senha.innerHTML = ``;
+            ipt_senha.style.border = "0";
+            correto = false;
+        }
+    }
+
+    function validarConfirmacao(){
+        var senha = ipt_senha.value;
+        var confirmacao = ipt_confirm.value;
+        if (confirmacao == senha && confirmacao.length >= 8) {
+            div_confSenha.innerHTML = ``;
+            ipt_confirm.style.border = "3px solid #08a708";
+        } else {
+            div_confSenha.innerHTML = `<b>As senhas não conferem.</b>`;
+            ipt_confirm.style.border = "3px solid #f70000";
+            correto = false;
+        }
+
+        if(confirmacao.length == 0){
+            div_confSenha.innerHTML = ``;
+            ipt_confirm.style.border = "0";
+            correto = false;
+        }
+    }
+</script>

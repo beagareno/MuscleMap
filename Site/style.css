@@ -1,4 +1,4 @@
-/* INÍCIO */
+/* HEADER */
 
 *{
     font-family: Arial, Helvetica, sans-serif;
@@ -13,6 +13,10 @@
     display: flex;
     justify-content:space-between;
     align-items: center;
+
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .logos{
@@ -36,6 +40,10 @@ align-items: center;
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .mlogo{
@@ -75,10 +83,90 @@ body{
     border: 0;
 }
 
+/* CALCULADORA */
+
+.calculadora img{
+    width: 100%;
+}
+
+.calculadora{
+    position: fixed;
+    left: 0px;
+}
+
+.calculadora button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 50px;
+    width: 60px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%); 
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 5px rgb(228, 22, 22) solid;
+    border-left: 0;
+}
+
+.container{
+    display: none;
+    background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 5px rgb(228, 22, 22) solid;
+    border-left: 0;
+}
+
+.container button{
+    background: linear-gradient(90deg, #c40e0e 0%, #d81717 100%); 
+    width: 300px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #218838;
+}
+
+.container h2 {
+    margin-top: 20px;
+}
+
+#div_resultado{
+    margin-top: 20px;
+}
+
+/* MANEQUIM */
+
 .manequim{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .corpo_frente_on{
@@ -103,16 +191,6 @@ body{
     display: none;
 }
 
-.virar{
-    display: flex;
-    justify-self: center;
-    background-color: rgb(61, 57, 57);
-    border: 0;
-    cursor: pointer;
-    height: 55px;
-    width: 50px;
-}
-
 .criar{
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -127,12 +205,13 @@ body{
     font-weight: 800;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
     height: 40px;
     width: 150px;
-}
 
-.img_virar{
-    width: 100%;
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .escolha_frente{
@@ -147,12 +226,21 @@ body{
     text-align: center;
 }
 
-.resultado_treino{
+.treino{
     display: none;
+    justify-content: center;
+    background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%);
+    border: 5px rgb(184, 6, 6) solid;
+    border-radius: 20px;
+    max-height: 400px;
+    width: 280px;
 
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
-.resultado_treino h1{
+.treino h1{
     color: rgb(228, 22, 22);
     font-size: 25px;
     font-weight: 800;
@@ -171,32 +259,10 @@ body{
     border-radius: 10px;
     padding-left: 5px;
     outline: none;
-}
 
-.escolha_tras{
-    display: none;
-    flex-direction: column;
-}
-
-.escolha_tras h1{
-    color: rgb(228, 22, 22);
-    font-size: 25px;
-    font-weight: 800;
-    text-align: center;
-}
-
-.escolha_tras select{
-    color: rgb(73, 69, 69);
-    background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%);
-    text-align: center;
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 300px;
-    height: 40px;
-    border: 2px solid white;
-    border-radius: 10px;
-    padding-left: 5px;
-    outline: none;
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .on{
@@ -223,6 +289,10 @@ body{
     padding-bottom: 50px;
     padding-top: 20px;
     align-items: center;
+
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .cadastro h1{
@@ -240,6 +310,7 @@ body{
     width: 70%;
     height: 35px;
     border: 0;
+    outline: 0;
     border-radius: 10px;
     padding-left: 15px;
     font-weight: 700;
@@ -257,6 +328,9 @@ body{
     display: flex;
     align-self: center;
     
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .cadastro button{
@@ -271,6 +345,17 @@ body{
     font-family: "Inter", sans-serif;
     cursor: pointer;
     transition: background 0.5s ease;
+
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+}
+
+.validacao{
+    display: flex;
+    color: #e62828;
+    padding-bottom: 10px;
+    text-align: center;
 }
 
 /* LOGIN */
@@ -286,6 +371,10 @@ body{
     padding-bottom: 50px;
     padding-top: 20px;
     align-items: center;
+
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .login h1{
@@ -308,6 +397,10 @@ body{
     font-weight: 700;
     font-family: "Inter", sans-serif;
     margin-bottom: 10px;
+
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
 
 .login button{
@@ -322,4 +415,8 @@ body{
     font-family: "Inter", sans-serif;
     cursor: pointer;
     transition: background 0.5s ease;
+
+    -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+    box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
 }
