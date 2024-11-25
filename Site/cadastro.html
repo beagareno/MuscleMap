@@ -42,9 +42,8 @@
 </html>
 
 <script>
-    var correto = false;
+    var correto = true;
     var abc = true;
-    // validado.innerHTML = ""
 
     function validarNome(){
         var nome = ipt_nome.value;
@@ -161,4 +160,58 @@
             correto = false;
         }
     }
+
+    function validarCadastro() {
+      correto = true;
+
+      validarNome();
+      validarEmail();
+      validarSenha();
+      validarConfirmacao();
+
+var nomeVar = ipt_nome.value;
+var emailVar = ipt_email.value;
+var senhaVar = ipt_senha.value;
+var confirmacaoVar = ipt_confirm.value;
+
+
+if (correto != true) {
+            alert("Verifique os campos preenchidos!")
+            correto = true
+        } else {
+
+
+fetch("/usuarios/cadastrar", {
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+},
+body: JSON.stringify({
+
+nomeServer: nomeVar,
+emailServer: emailVar,
+senhaServer: senhaVar,
+
+
+}),
+})
+.then(function (resposta) {
+console.log("resposta: ", resposta);
+
+if (resposta.ok) {
+
+  setTimeout(() => {
+    window.location = "login.html";
+  }, "2000");
+} else {
+  throw "Houve um erro ao tentar realizar o cadastro!";
+}
+})
+.catch(function (resposta) {
+console.log(`#ERRO: ${resposta}`);
+});
+
+return false;
+}
+  }
 </script>
