@@ -5,7 +5,7 @@ function autenticar(req, res) {
     var senha = req.body.senhaServer;
 
     if (email == undefined) {
-        res.status(400).send("Seu email está indefinido!");
+        res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
@@ -51,11 +51,11 @@ function cadastrar(req, res) {
 
 
     if ( nome == undefined) {
-        res.status(400).send(`Seu nome está indefinido`);
+        res.status(400).send(`Seu nome está undefined`);
     } else if (email == undefined) {
-        res.status(400).send("Seu email está indefinido!");
+        res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
+        res.status(400).send("Sua senha está undefined!");
     }else {
 
 
@@ -77,20 +77,6 @@ function cadastrar(req, res) {
             );
     }
 }
-// function postResultadoQuiz(req, res) {
-//     console.log(req.body); 
-//     const idPlayer = req.body.idPlayer;
-//     const resultado = req.body.resultado;
-
-//     resultadoModel.postResultadoQuiz(idPlayer, resultado)
-//     .then(response => {
-//         return res.status(201).json(response);
-//     })
-//     .catch(e => {
-//         console.error(e);
-//         return res.status(500).json({ error: 'Erro ao processar a requisição' });
-//     });
-// }
 
 module.exports = {
     autenticar,
