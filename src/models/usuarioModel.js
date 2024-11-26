@@ -21,10 +21,6 @@ function cadastrar (nome, email, senha) {
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql)
-        .then(() => {
-            console.log("Executando a instrução SQL: \n");
-            return database.executar()
-    })
 }
 
     function autenticar (email, senha){

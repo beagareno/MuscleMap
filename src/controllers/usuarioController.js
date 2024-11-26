@@ -5,11 +5,14 @@ function autenticar(req, res) {
     var senha = req.body.senhaServer;
 
     if (email == undefined) {
+        console.log('ESTOU NO IF EMAIL == UNDEFINED DA USUARIO CONTROLLER');
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
+        console.log('ESTOU NO ELSE IF SENHA == UNDEFINED DA USUARIO CONTROLLER');
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
+        console.log('ESTOU NO ELSE DE TUDO DANDO CERTO');
         usuarioModel.autenticar(email, senha)
             .then(
                 function (resultadoAutenticar) {
@@ -26,8 +29,10 @@ function autenticar(req, res) {
                         }); 
 
                     } else if (resultadoAutenticar.length == 0) {
+                        console.log('ESTOU NO ELSE IF RESULTADOAUTENTICAR.LENGTH == 0');
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
+                        console.log('ESTOU NO ELSE PARA MAIS DE UM USUARIO COM O MESMO LOGIN E SENHA');
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
                 }
@@ -48,21 +53,23 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
-
+    console.log('ESTOU NA FUNCTION CADASTRAR');
 
     if ( nome == undefined) {
+        console.log('ESTOU NO IF NOME == UNDEFINED');
         res.status(400).send(`Seu nome está undefined`);
     } else if (email == undefined) {
+        console.log('ESTOU NO ELSE IF EMAIL == UNDEFINED');
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
+        console.log('ESTOU NO ELSE IF SENHA == UNDEFINED');
         res.status(400).send("Sua senha está undefined!");
     }else {
-
-
-    
+        console.log('ESTOU NO ELSE DE CADASTRAR O NOME, EMAIL E SENHA');
         usuarioModel.cadastrar(nome, email, senha)
             .then(
                 function (resultado) {
+                    console.log('ESTOU NA FUNCTION RESULTADO');
                     res.json(resultado);
                 }
             ).catch(
@@ -72,6 +79,7 @@ function cadastrar(req, res) {
                         "\nHouve um erro ao realizar o cadastro! Erro: ",
                         erro.sqlMessage
                     );
+                    console.log('ESTOU NA PARTE DE CHAMAR O ERRO.SQLMESSAGE');
                     res.status(500).json(erro.sqlMessage);
                 }
             );

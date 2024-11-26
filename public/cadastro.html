@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
     <link rel="shortcut icon" type="imagex/png" href="img/logo_musclemap.png">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="head">
-       <div class="logos"> 
-            <a href="index.html" class="logo">Muscle<span class="mlogo">Map</span></a>
-            <img class="imglogo" src="img/logo_musclemap.png" alt="">
-        </div>
+            <div class="logos">
+                <a href="index.html" class="logo">Muscle<span class="mlogo">Map</span></a>
+                <img class="imglogo" src="img/logo_musclemap.png" alt="">
+            </div>
             <div class="buttons">
                 <a href="">Calculadora</a>
                 <a href="cadastro.html">Cadastrar</a>
@@ -39,13 +41,14 @@
     </form>
 
 </body>
+
 </html>
 
 <script>
     var correto = true;
     var abc = true;
 
-    function validarNome(){
+    function validarNome() {
         var nome = ipt_nome.value;
         ipt_nome.value = nome.replaceAll('!', '')
             .replaceAll('@', '')
@@ -66,14 +69,14 @@
             div_nome.innerHTML = `<b>O nome deve conter pelo menos 3 letras</b>`;
         }
 
-        if(nome.length == 0){
+        if (nome.length == 0) {
             div_nome.innerHTML = ``;
             ipt_nome.style.border = "0";
             correto = false;
         }
     }
 
-    function validarEmail(){
+    function validarEmail() {
         var email = ipt_email.value;
         var possui_arroba = ipt_email.value.includes("@");
         var termina_com = email.endsWith("sptech.school")
@@ -85,21 +88,21 @@
             ipt_email.style.border = "3px solid #08a708";
             div_email.innerHTML = ``;
         } else {
-            div_email.innerHTML = 
-            `<b>O e-mail deve possuir '@' <br>
+            div_email.innerHTML =
+                `<b>O e-mail deve possuir '@' <br>
              e acabar em '.com', '.br', '.net' ou '.sptech.school'</b>`;
             correto = false;
             ipt_email.style.border = "3px solid #f70000";
         }
 
-        if(email.length == 0){
+        if (email.length == 0) {
             div_email.innerHTML = ``;
             ipt_email.style.border = "0";
             correto = false;
         }
     }
 
-    function validarSenha(){
+    function validarSenha() {
         var senha = ipt_senha.value;
 
         var possui_esp = ipt_senha.value.includes("!")
@@ -135,14 +138,14 @@
             correto = false;
         }
 
-        if(senha.length == 0){
+        if (senha.length == 0) {
             div_senha.innerHTML = ``;
             ipt_senha.style.border = "0";
             correto = false;
         }
     }
 
-    function validarConfirmacao(){
+    function validarConfirmacao() {
         var senha = ipt_senha.value;
         var confirmacao = ipt_confirm.value;
         if (confirmacao == senha && confirmacao.length >= 8) {
@@ -154,7 +157,7 @@
             correto = false;
         }
 
-        if(confirmacao.length == 0){
+        if (confirmacao.length == 0) {
             div_confSenha.innerHTML = ``;
             ipt_confirm.style.border = "0";
             correto = false;
@@ -162,56 +165,56 @@
     }
 
     function validarCadastro() {
-      correto = true;
+        correto = true;
 
-      validarNome();
-      validarEmail();
-      validarSenha();
-      validarConfirmacao();
+        validarNome();
+        validarEmail();
+        validarSenha();
+        validarConfirmacao();
 
-var nomeVar = ipt_nome.value;
-var emailVar = ipt_email.value;
-var senhaVar = ipt_senha.value;
-var confirmacaoVar = ipt_confirm.value;
+        var nomeVar = ipt_nome.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+        var confirmacaoVar = ipt_confirm.value;
 
 
-if (correto != true) {
+        if (correto != true) {
             alert("Verifique os campos preenchidos!")
             correto = true
         } else {
 
 
-fetch("/usuarios/cadastrar", {
-method: "POST",
-headers: {
-"Content-Type": "application/json",
-},
-body: JSON.stringify({
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
 
-nomeServer: nomeVar,
-emailServer: emailVar,
-senhaServer: senhaVar,
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
 
 
-}),
-})
-.then(function (resposta) {
-console.log("resposta: ", resposta);
+                }),
+            }).then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-if (resposta.ok) {
+                    if (resposta.ok) {
+                        console.log('caiu no if')
+                        setTimeout(() => {
+                            window.location = ".login.html";
+                        }, "2000");
+                    } else {
+                        console.log('caiu no else')
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
 
-  setTimeout(() => {
-    window.location = "login.html";
-  }, "2000");
-} else {
-  throw "Houve um erro ao tentar realizar o cadastro!";
-}
-})
-.catch(function (resposta) {
-console.log(`#ERRO: ${resposta}`);
-});
-
-return false;
-}
+            return false;
+        }
     }
 </script>
