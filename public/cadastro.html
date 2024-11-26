@@ -17,7 +17,6 @@
                 <img class="imglogo" src="img/logo_musclemap.png" alt="">
             </div>
             <div class="buttons">
-                <a href="">Calculadora</a>
                 <a href="cadastro.html">Cadastrar</a>
                 <a href="login.html">Login</a>
             </div>
@@ -25,7 +24,7 @@
         </div>
     </header>
 
-    <form class="cadastro">
+    <div class="cadastro">
         <h1>Cadastro</h1>
         <span class="linha"></span>
         <input oninput="validarNome()" type="text" id="ipt_nome" placeholder="Nome">
@@ -37,8 +36,8 @@
         <input oninput="validarConfirmacao()" type="password" id="ipt_confirm" placeholder="Confirme a senha">
         <div id="div_confSenha" class="validacao"></div>
 
-        <button onclick="validarCadastro()">Cadastrar-se</button>
-    </form>
+        <button onclick="cadastrar()">Cadastrar-se</button>
+    </div>
 
 </body>
 
@@ -164,57 +163,120 @@
         }
     }
 
-    function validarCadastro() {
-        correto = true;
+    // function validarCadastro() {
+    //     correto = true;
 
-        validarNome();
-        validarEmail();
-        validarSenha();
-        validarConfirmacao();
+    //     validarNome();
+    //     validarEmail();
+    //     validarSenha();
+    //     validarConfirmacao();
 
-        var nomeVar = ipt_nome.value;
-        var emailVar = ipt_email.value;
-        var senhaVar = ipt_senha.value;
-        var confirmacaoVar = ipt_confirm.value;
+    //     var nomeVar = ipt_nome.value;
+    //     var emailVar = ipt_email.value;
+    //     var senhaVar = ipt_senha.value;
+    //     var confirmacaoVar = ipt_confirm.value;
 
 
-        if (correto != true) {
-            alert("Verifique os campos preenchidos!")
-            correto = true
+    //     if (correto != true) {
+    //         alert("Verifique os campos preenchidos!")
+    //         correto = true
+    //     } else {
+
+
+    //         fetch("/usuarios/cadastrar", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({
+
+    //                 nomeServer: nomeVar,
+    //                 emailServer: emailVar,
+    //                 senhaServer: senhaVar
+
+
+    //             }),
+    //         })
+    //         .then(function (resposta) {
+    //                 console.log("resposta: ", resposta.ok);
+
+    //                 if (resposta.ok) {
+                        
+    //                     setTimeout(function() {
+    //                         alert('aqui')
+    //                         window.location = "./login.html";
+    //                     }, "2000");
+    //                 } else {
+    //                     throw "Houve um erro ao tentar realizar o cadastro!";
+    //                 }
+    //             })
+    //             .catch(function (resposta) {
+    //                 console.log(`#ERRO: ${resposta}`);
+    //             });
+
+    //         return false;
+    //     }
+    // }
+    function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = ipt_nome.value;
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_senha.value;
+    var confirmacaoSenhaVar = ipt_confirm.value;
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" 
+    ) {
+        alert('Mensagem de erro para todos os campos em branco');
+
+      finalizarAguardar();
+      return false;
+    } 
+
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+        console.log(resposta.ok);
+
+        if (resposta.ok) {
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
         } else {
-
-
-            fetch("/usuarios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-
-                    nomeServer: nomeVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar
-
-
-                }),
-            }).then(function (resposta) {
-                    console.log("resposta: ", resposta);
-
-                    if (resposta.ok) {
-                        console.log('caiu no if')
-                        setTimeout(() => {
-                            window.location = ".login.html";
-                        }, "2000");
-                    } else {
-                        console.log('caiu no else')
-                        throw "Houve um erro ao tentar realizar o cadastro!";
-                    }
-                })
-                .catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-                });
-
-            return false;
+          throw "Houve um erro ao tentar realizar o cadastro!";
         }
-    }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
 </script>

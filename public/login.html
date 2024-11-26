@@ -15,7 +15,6 @@
             <img class="imglogo" src="img/logo_musclemap.png" alt="">
         </div>
             <div class="buttons">
-                <a href="">Calculadora</a>
                 <a href="cadastro.html">Cadastrar</a>
                 <a href="login.html">Login</a>
             </div>
@@ -23,16 +22,16 @@
         </div>
     </header>
 
-    <form class="login">
+    <div class="login">
         <h1>Login</h1>
         <span class="linha"></span>
         <input oninput="validarEmail()" type="text" id="ipt_email" placeholder="E-mail">
-        <div id="ema"></div>
+        <div id="div_email"></div>
         <input oninput="validarSenha()" type="password" id="ipt_senha" placeholder="Senha">
-        <div id="senhas"></div>
+        <div id="div_senhas" class="validacao"></div>
         
         <button onclick="login()">Login</button>
-    </form>
+    </div>
 
 </body>
 </html>
@@ -86,7 +85,7 @@
             div_senhas.innerHTML = "Senha Válida"
             ipt_senha.style.border = "3px solid #08a708"
         } else {
-            div_senhas.innerHTML = "A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial, uma letra maiúscula, uma letra minúscula e um número."
+            div_senhas.innerHTML = "<b>A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial, uma letra maiúscula, uma letra minúscula e um número.</b>"
             ipt_senha.style.border = "3px solid #f70000"
             correto = false
         }
@@ -107,7 +106,7 @@
         } else {
 
         
-
+            
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -119,7 +118,6 @@
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
-
             if (resposta.ok) {
                 console.log(resposta);
 

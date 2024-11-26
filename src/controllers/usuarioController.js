@@ -69,9 +69,11 @@ function cadastrar(req, res) {
         usuarioModel.cadastrar(nome, email, senha)
             .then(
                 function (resultado) {
-                    console.log('ESTOU NA FUNCTION RESULTADO');
-                    res.json(resultado);
+                    console.log("resultado: "+ resultado);{
+                        res.json(resultado)
+                    }
                 }
+                
             ).catch(
                 function (erro) {
                     console.log(erro);
