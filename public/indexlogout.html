@@ -18,7 +18,7 @@
             </div>
             <div class="buttons">
                 <a href="cadastro.html">Cadastrar</a>
-                <a href="indexlogout.html">Sair</a>
+                <a href="login.html">Login</a>
             </div>
 
         </div>
@@ -54,36 +54,36 @@
 
             <select id="slct_musculo">
                 <option value="#">Selecione</option>
-                <option value="2">Peitoral Superior</option>
-                <option value="3">Peitoral Medial</option>
-                <option value="4">Peitoral Inferior</option>
-                <option value="6">Deltóide Anterior</option>
-                <option value="7">Deltóide Lateral</option>
-                <option value="8">Deltóide Posterior</option>
-                <option value="10">Bíceps Cabeça Longa</option>
-                <option value="11">Bíceps Cabeça Curta</option>
-                <option value="12">Braquial</option>
-                <option value="26">Tríceps Cabeça Longa</option>
-                <option value="27">Tríceps Cabeça Lateral</option>
-                <option value="28">Tríceps Cabeça Medial</option>
-                <option value="13">Abdômen</option>
-                <option value="15">Reto Femoral</option>
-                <option value="16">Vasto Lateral</option>
-                <option value="17">Vasto Medial</option>
-                <option value="18">Adutores</option>
-                <option value="19">Abdutores</option>
-                <option value="21">Trapézio</option>
-                <option value="22">Latíssimo do Dorso</option>
-                <option value="23">Rombóides</option>
-                <option value="24">Quadrado Lombar</option>
-                <option value="30">Bíceps Femoral</option>
-                <option value="31">Semitendíneoso</option>
-                <option value="32">Semimembranoso</option>
-                <option value="34">Glúteo Máximo</option>
-                <option value="35">Glúteo Médio</option>
-                <option value="36">Glúteo Mínimo</option>
-                <option value="38">Gêmeos</option>
-                <option value="39">Sóleo</option>
+                <option>Peitoral Superior</option>
+                <option>Peitoral Medial</option>
+                <option>Peitoral Inferior</option>
+                <option>Deltóide Anterior</option>
+                <option>Deltóide Lateral</option>
+                <option>Bíceps Cabeça Longa</option>
+                <option>Bíceps Cabeça Curta</option>
+                <option>Braquial</option>
+                <option>Abdômen</option>
+                <option>Reto Femoral</option>
+                <option>Vasto Lateral</option>
+                <option>Vasto Medial</option>
+                <option>Adutores</option>
+                <option>Abdutores</option>
+                <option>Trapézio</option>
+                <option>Latíssimo do Dorso</option>
+                <option>Rombóides</option>
+                <option>Quadrado Lombar</option>
+                <option>Deltóide Posterior</option>
+                <option>Tríceps Cabeça Longa</option>
+                <option>Tríceps Cabeça Lateral</option>
+                <option>Tríceps Cabeça Medial</option>
+                <option>Bíceps Femoral</option>
+                <option>Semitendíneoso</option>
+                <option>Semimembranoso</option>
+                <option>Glúteo Máximo</option>
+                <option>Glúteo Médio</option>
+                <option>Glúteo Mínimo</option>
+                <option>Gêmeos</option>
+                <option>Sóleo</option>
             </select>
 
         </form>
@@ -133,13 +133,13 @@
             <img id="soleo" style="height: 90%; width: 70%; display: none;" src="img/soleo.png" alt="">
         </div>
 
-        <div id="div_treino_aparecer" class=" treino">
+        <div id="div_treino" class=" treino">
 
             <h1>Seu treino</h1>
-            <div id="div_treino">
+            <div>
 
             </div>
-            <button onclick="salvar_treino()" class="sv_treino">Salvar Treino</button>
+            <h2>Cadastre-se ou Entre para salvar seu treino</h2>
         </div>
 
     </div>
@@ -154,12 +154,12 @@
     var parteDestacada = false;
 
     function criar_treino() {
-        div_treino_aparecer.style.display = 'flex';
+        div_treino.style.display = 'flex';
         var musculo = slct_musculo.value;
 
-        if (musculo == '#') {
+        if ((musculo == '#') && (musculo == '#')) {
             alert('Selecione um músculo para montar seu treino')
-        } else if (musculo == 2) {
+        } else if (musculo == 'Peitoral Superior') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -193,7 +193,7 @@
             peito_inf.style.display = 'none';
             peito_sup.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 3) {
+        } else if (musculo == 'Peitoral Medial') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -229,7 +229,7 @@
             peito_inf.style.display = 'none';
             peito_med.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 4) {
+        } else if (musculo == 'Peitoral Inferior') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -265,7 +265,7 @@
             peito_med.style.display = 'none';
             peito_inf.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 6) {
+        } else if (musculo == 'Deltóide Anterior') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -301,7 +301,7 @@
             peito_inf.style.display = 'none';
             deltoide_ant.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 7) {
+        } else if (musculo == 'Deltóide Lateral') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -337,7 +337,7 @@
             deltoide_ant.style.display = 'none';
             deltoide_lat.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 10) {
+        } else if (musculo == 'Bíceps Cabeça Longa') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -373,7 +373,7 @@
             deltoide_lat.style.display = 'none';
             biceps_longa.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 11) {
+        } else if (musculo == 'Bíceps Cabeça Curta') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -409,7 +409,7 @@
             biceps_longa.style.display = 'none';
             biceps_curta.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 12) {
+        } else if (musculo == 'Braquial') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -445,7 +445,7 @@
             biceps_curta.style.display = 'none';
             braquial.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 13) {
+        } else if (musculo == 'Abdômen') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -481,7 +481,7 @@
             braquial.style.display = 'none';
             abdomen.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 15) {
+        } else if (musculo == 'Reto Femoral') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -517,7 +517,7 @@
             abdomen.style.display = 'none';
             reto_femoral.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 16) {
+        } else if (musculo == 'Vasto Lateral') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -553,7 +553,7 @@
             reto_femoral.style.display = 'none';
             vasto_lateral.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 17) {
+        } else if (musculo == 'Vasto Medial') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -589,7 +589,7 @@
             vasto_lateral.style.display = 'none';
             vasto_medial.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 18) {
+        } else if (musculo == 'Adutores') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -625,7 +625,7 @@
             vasto_medial.style.display = 'none';
             adutor.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 19) {
+        } else if (musculo == 'Abdutores') {
             corpo.classList.remove('on');
             corpo.classList.add('off');
             musculo_destaque.classList.remove('off');
@@ -661,7 +661,7 @@
             adutor.style.display = 'none';
             abdutor.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 21) {
+        } else if (musculo == 'Trapézio') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -696,7 +696,7 @@
             latissimo.style.display = 'none';
             trapezio.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 22) {
+        } else if (musculo == 'Latíssimo do Dorso') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -730,7 +730,7 @@
             trapezio.style.display = 'none';
             latissimo.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 23) {
+        } else if (musculo == 'Rombóides') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -764,7 +764,7 @@
             latissimo.style.display = 'none';
             romboides.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 24) {
+        } else if (musculo == 'Quadrado Lombar') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -798,7 +798,7 @@
             romboides.style.display = 'none';
             lombar.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 8) {
+        } else if (musculo == 'Deltóide Posterior') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -832,7 +832,7 @@
             lombar.style.display = 'none';
             deltoide_posterior.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 26) {
+        } else if (musculo == 'Tríceps Cabeça Longa') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -866,7 +866,7 @@
             deltoide_posterior.style.display = 'none';
             triceps_longa.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 27) {
+        } else if (musculo == 'Tríceps Cabeça Lateral') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -900,7 +900,7 @@
             triceps_longa.style.display = 'none';
             triceps_lateral.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 28) {
+        } else if (musculo == 'Tríceps Cabeça Medial') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -934,7 +934,7 @@
             triceps_lateral.style.display = 'none';
             triceps_medial.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 30) {
+        } else if (musculo == 'Bíceps Femoral') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -968,7 +968,7 @@
             triceps_medial.style.display = 'none';
             biceps_femoral.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 31) {
+        } else if (musculo == 'Semitendíneoso') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -1002,7 +1002,7 @@
             biceps_femoral.style.display = 'none';
             semitendineoso.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 32) {
+        } else if (musculo == 'Semimembranoso') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -1036,7 +1036,7 @@
             semitendineoso.style.display = 'none';
             semimembranoso.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 34) {
+        } else if (musculo == 'Glúteo Máximo') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -1070,7 +1070,7 @@
             semimembranoso.style.display = 'none';
             gluteo_max.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 35) {
+        } else if (musculo == 'Glúteo Médio') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -1104,7 +1104,7 @@
             gluteo_max.style.display = 'none';
             gluteo_med.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 36) {
+        } else if (musculo == 'Glúteo Mínimo') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -1138,7 +1138,7 @@
             gluteo_med.style.display = 'none';
             gluteo_min.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 38) {
+        } else if (musculo == 'Gêmeos') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             soleo.style.display = 'none';
@@ -1172,7 +1172,7 @@
             gluteo_min.style.display = 'none';
             gemeos.style.display = 'flex';
             parteDestacada = true;
-        } else if (musculo == 39) {
+        } else if (musculo == 'Sóleo') {
             musculo_destaque.style.display = 'flex';
             corpo.style.display = 'none';
             peito_sup.style.display = 'none';
@@ -1208,57 +1208,6 @@
             parteDestacada = true;
         }
 
-        fetch("/treino/criar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                musculoServer: musculo
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO criar_treino()!")
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-
-                    sessionStorage.MUSCULO_USUARIO = json.musculo;
-
-                    var treino = json
-
-                    for (let exercicio of treino) {
-                        div_treino.innerHTML += `<b>${exercicio.nome}</b><br><br>`
-                    }
-
-                    // var treino = JSON.stringify(json);
-
-                    // div_treino.innerHTML = `${teste}`;
-
-                    // setTimeout(function () {
-                    //     window.location = "index.html";
-                    // }, 1000);
-
-                });
-
-
-            } else {
-
-                console.log("Houve um erro ao tentar criar seu treino!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-
     }
 
     function calculadora() {
@@ -1277,7 +1226,7 @@
             var imc = peso / (altura * altura);
             // var resultado = document.getElementById('div_resultado');
 
-            div_resultado.innerHTML = `<b>Seu IMC é: ${imc.toFixed(2)}</b>`;
+             div_resultado.innerHTML = `<b>Seu IMC é: ${imc.toFixed(2)}</b>`;
 
             // Classificação do IMC
             if (imc < 18.5) {
