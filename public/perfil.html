@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MuscleMap | Login</title>
     <link rel="shortcut icon" type="imagex/png" href="img/logo_musclemap.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_dash.css">
 </head>
 <body>
     <header>
         <div class="head">
        <div class="logos"> 
-            <a href="index.html" class="logo">Muscle<span class="mlogo">Map</span></a>
+            <a href="indexlogin.html" class="logo">Muscle<span class="mlogo">Map</span></a>
             <img class="imglogo" src="img/logo_musclemap.png" alt="">
         </div>
             <div class="buttons">
@@ -21,11 +21,13 @@
         </div>
     </header>
 
-    
-    <div>
+    <h1>Calorias dos seus treinos</h1>
+
+    <div class="grafico">
+    <div class="canvas">
         <canvas id="myChart"></canvas>
       </div>
-
+    </div>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -43,9 +45,11 @@
     data: {
         labels: listaMusculo,
         datasets: [{
-        label: 'Gasto Calórico | Treinos',
+        label: 'Gasto Calórico',
         data: listaGastoCal,
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: 'rgb(228, 22, 22)',
+        borderColor: 'black'
         }]
     },
     options: {

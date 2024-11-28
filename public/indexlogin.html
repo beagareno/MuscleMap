@@ -136,7 +136,7 @@
         <div id="div_treino_aparecer" class=" treino">
 
             <h1>Seu treino</h1>
-            <div id="div_treino">
+            <div id="div_treino" class="resultado_treino">
 
             </div>
             <button onclick="salvar()" class="sv_treino">Salvar Treino</button>
@@ -1235,16 +1235,8 @@
                     var treino = json;
 
                     for (let exercicio of treino) {
-                        div_treino.innerHTML += `<b>${exercicio.nome}</b><br><br>`
+                        div_treino.innerHTML += `<b>${exercicio.nome}</b><br>`
                     }
-
-                    // var treino = JSON.stringify(json);
-
-                    // div_treino.innerHTML = `${teste}`;
-
-                    // setTimeout(function () {
-                    //     window.location = "index.html";
-                    // }, 1000);
 
                 });
 
@@ -1360,6 +1352,7 @@
                 resposta.json().then(json => {
                     console.log(json);
 
+                    alert('Seu treino foi salvo com sucesso!');
 
                 });
 

@@ -256,7 +256,16 @@ label {
     color: #d81717;
 }
 
+.resultado_treino{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 11.5px;
+}
+
 .sv_treino{
+    cursor: pointer;
     align-self: center;
     background-color: rgb(255, 255, 31);
     border: 0;
@@ -440,4 +449,15 @@ label {
     -webkit-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
     -moz-box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
     box-shadow: 0px 8px 7px -6px rgb(27, 26, 26);
+}
+
+/* DASHBOARD */
+
+.canvas{
+    width: 50%;
+    background: linear-gradient(90deg, #c7bebe 0%, #f8f6f6 100%);
+}
+
+.grafico{
+    right: 0px;
 }
