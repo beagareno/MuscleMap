@@ -24,7 +24,12 @@ function cadastrar (nome, email, senha) {
     `
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+    
+    var response = database.executar(instrucaoSql)
+
+console.log("response", response)
+
+    return response;
     }
 module.exports = {
     autenticar,

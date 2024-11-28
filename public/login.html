@@ -117,29 +117,31 @@
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+            // console.log("ESTOU NO THEN DO entrar()!")
+            // console.log("tô aqui")
+            console.log(resposta);
             if (resposta.ok) {
-                console.log(resposta);
 
                 resposta.json().then(json => {
                     console.log(json);
 
                     console.log("email: " + json.email)
                     console.log("nome: " + json.nome)
-       
+                    console.log("idUsuario: " + json.id)
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "index.html";
+                        window.location = "indexlogin.html";
                     }, 1000);
 
                 });
                 
 
-            } else {
+            }
+             else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
 

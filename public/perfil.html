@@ -15,14 +15,89 @@
             <img class="imglogo" src="img/logo_musclemap.png" alt="">
         </div>
             <div class="buttons">
-                <a href="cadastro.html">Cadastrar</a>
-                <a href="indexlogout.html">Sair</a>
+                <a href="index.html">Sair</a>
             </div>
 
         </div>
     </header>
 
     
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
 
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    var listaMusculo = [];
+    var listaGastoCal = [];
+
+    function criarGrafico(){
+        const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: listaMusculo,
+        datasets: [{
+        label: 'Gasto Calórico | Treinos',
+        data: listaGastoCal,
+        borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+    });
+    }
+
+    function chamarDash(){
+        fetch("/dash/grafico", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuario: sessionStorage.getItem("ID_USUARIO")
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+
+                    for(var i = 0; i < json.length; i++){
+                     listaGastoCal.push(json[i].gastoCal);
+                     listaMusculo.push(json[i].musculo);
+                    }
+
+                    criarGrafico()
+
+                });
+
+
+            } else {
+
+                console.log("Houve um erro ao tentar salvar seu treino!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
+    chamarDash()
+</script>

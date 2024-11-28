@@ -20,6 +20,8 @@ idMusculo int primary key auto_increment,
 nome varchar(60)
 );
 
+select * from musculos;
+
 insert into musculos values
 (default, 'Peitoral'),
 (default,'Peitoral Superior'),
@@ -289,6 +291,8 @@ insert into exercicios values
 (default, 38, 'Step-Up Isométrico na Ponta dos Pés', 160, 'Mantém o sóleo ativo em posição de flexão plantar sustentada.'),
 (default, 38, 'Pliometria em Degraus', 300, 'Saltos controlados em degraus enfatizam o sóleo devido à flexão do joelho.');
 
+select * from exercicios;
+
 create table exerciciosTreino (
 fkExercicio int,
 fkTreino int,
@@ -301,3 +305,14 @@ foreign key (fkTreino)
 references treino (idTreino)
 );
 
+select * from treino;
+
+select * from exerciciosTreino;
+
+select m.nome as 'Músculo',
+sum(e.gastoCal) as 'Total Calorias'
+from exerciciosTreino as et 
+join exercicios as e on e.idExercicio = et.fkExercicio 
+join treino t on t.idTreino = et.fkTreino 
+join musculos m on m.idMusculo = t.fkMusculo
+group by et.fkTreino;
